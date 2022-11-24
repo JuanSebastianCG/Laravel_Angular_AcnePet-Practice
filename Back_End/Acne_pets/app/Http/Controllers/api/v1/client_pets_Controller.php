@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\client_pet;
 use Illuminate\Http\Request;
 
+use App\Http\Requests\api\v1\client_pet_Request;
+use App\Http\Resources\api\v1\client_pet_Resource;
+
+
+
 class client_pets_Controller extends Controller
 {
     /**
@@ -15,7 +20,7 @@ class client_pets_Controller extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
