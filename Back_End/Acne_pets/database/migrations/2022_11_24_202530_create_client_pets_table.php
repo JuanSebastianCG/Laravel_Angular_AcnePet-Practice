@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('client_pets', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('client_id');
+            $table->foreignId('pet_id')->constrained();
             $table->timestamps();
         });
     }
