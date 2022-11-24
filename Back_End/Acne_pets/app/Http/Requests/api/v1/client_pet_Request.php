@@ -13,7 +13,7 @@ class client_pet_Request extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class client_pet_Request extends FormRequest
     public function rules()
     {
         return [
-            //
+            'client_id' => 'required|integer',
+            'pet_id' => 'required|integer',
         ];
     }
 }

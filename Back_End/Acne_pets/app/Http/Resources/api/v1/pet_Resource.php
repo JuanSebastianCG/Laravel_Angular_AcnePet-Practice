@@ -14,6 +14,16 @@ class pet_Resource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+
+        /* age : actual date minus date of birth */
+        $age = date_diff(date_create($this->date_of_birth), date_create('now'))->y;
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'date_of_birth' => $this->date_of_birth,
+            'date' => $this->date,
+            'type' => $this->type,
+            'client' => $this->clients,
+        ];
     }
 }

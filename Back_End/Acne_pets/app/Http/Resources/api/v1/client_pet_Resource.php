@@ -14,6 +14,11 @@ class client_pet_Resource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'client_id' => $this->client_id,
+            'pet_id' => $this->pet_id,
+            'pet' => $this->pets,
+        ];
     }
 }

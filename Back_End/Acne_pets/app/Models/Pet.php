@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Pet extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'date_of_birth',
+        'type',
+    ];
+
+    public function clients()
+    {
+        return $this->belongsTo(client_pet::class, 'client_pets');
+    }
 }
