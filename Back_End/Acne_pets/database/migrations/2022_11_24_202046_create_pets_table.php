@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('pets', function (Blueprint $table) {
             $table->id();
-            
+
             $table->string('name');
             $table->date('date_of_birth');
             $table->enum('type', ['perro', 'gato']);
+            
 
             $table->timestamps();
         });

@@ -15,8 +15,8 @@ class Pet extends Model
         'type',
     ];
 
-    public function clients()
+    public function client_pet()
     {
-        return $this->belongsTo(client_pet::class, 'client_pets');
+        return $this->hasOne(client_pet::class);
     }
 }
