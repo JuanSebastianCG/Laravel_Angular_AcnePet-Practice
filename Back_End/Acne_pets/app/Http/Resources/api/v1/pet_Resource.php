@@ -4,7 +4,6 @@ namespace App\Http\Resources\api\v1;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-
 class pet_Resource extends JsonResource
 {
     /**
@@ -19,6 +18,7 @@ class pet_Resource extends JsonResource
         /* age : actual date minus date of birth */
         $age = date_diff(date_create($this->date_of_birth), date_create('now'))->y;
 
+        /* id the user exist */
         $userData = null;
         if($this->client_pet != null)
             $userData = [
@@ -26,7 +26,6 @@ class pet_Resource extends JsonResource
                 'pet_id' => $this->client_pet->pet_id,
             ];
         
-            
         return [
             'id' => $this->id,
             'name' => $this->name,

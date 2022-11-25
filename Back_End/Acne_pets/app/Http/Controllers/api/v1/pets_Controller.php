@@ -39,7 +39,6 @@ class pets_Controller extends Controller
         $pet = new Pet();
         $pet->name = $request->name;
         $pet->date_of_birth = $request->date_of_birth;
-        $pet->date = $request->date;
         $pet->type = $request->type;
         $pet->save();
 
@@ -75,7 +74,6 @@ class pets_Controller extends Controller
         /* update pet */
         $pet->name = $request->name;
         $pet->date_of_birth = $request->date_of_birth;
-        $pet->date = $request->date;
         $pet->type = $request->type;
         $pet->save();
 
