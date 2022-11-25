@@ -30,20 +30,19 @@ class pets_Controller extends Controller
      */
     public function store(Request $request)
     {
-        /* validation  pet request */
         $validation = new pet_Request();
-        $validator = $validation->rules(); 
-        $request->validate($validator);
-
-        /* create new pet */
-        $pet = new Pet();
-        $pet->name = $request->name;
-        $pet->date_of_birth = $request->date_of_birth;
-        $pet->type = $request->type;
-        $pet->save();
-
-        return response()->json(['data' => new pet_Resource($pet)], 201);
-
+        $validation = $validation->rules();
+        $validator = \Validator::make($request->all(), $validation);
+        if ($validator->passes()) {
+            $pet = new Pet();
+            $pet->name = $request->name;
+            $pet->date_of_birth = $request->date_of_birth;
+            $pet->type = $request->type;
+            $pet->save();
+            return response()->json(['data' => new pet_Resource($pet)], 201);
+        } else {
+            return response()->json(['error' => $validator->errors()->all()], 400);
+        }
     }
 
     /**
@@ -66,18 +65,22 @@ class pets_Controller extends Controller
      */
     public function update(Request $request, Pet $pet)
     {
+
         /* validation  pet request */
         $validation = new pet_Request();
-        $validator = $validation->rules(); 
-        $request->validate($validator);
+        $validation = $validation->rules();
+        $validator = \Validator::make($request->all(), $validation);
+        if ($validator->passes()) {
+            /* update pet */
+            $pet->name = $request->name;
+            $pet->date_of_birth = $request->date_of_birth;
+            $pet->type = $request->type;
+            $pet->save();
+            return response()->json(['data' => new pet_Resource($pet)], 200);
+        } else {
+            return response()->json(['data' => $validator->errors()], 400);
+        }
 
-        /* update pet */
-        $pet->name = $request->name;
-        $pet->date_of_birth = $request->date_of_birth;
-        $pet->type = $request->type;
-        $pet->save();
-
-        return response()->json(['data' => new pet_Resource($pet)], 200);
     }
 
     /**

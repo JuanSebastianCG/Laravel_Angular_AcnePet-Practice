@@ -16,6 +16,7 @@ class pet_Request extends FormRequest
         return true;
     }
 
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -26,7 +27,25 @@ class pet_Request extends FormRequest
         return [
             'name' => 'required|string',
             'date_of_birth' => 'required|date',
-            'type' => 'required|string',
+            'type' => 'required|string|in:gato,perro',
         ];
     }
+    
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, mixed>
+     */
+    public function messages()
+    {
+        return [
+            'name.required' => 'A name is required',
+            'date_of_birth.required' => 'A date of birth is required',
+            'type.required' => 'A type is required',
+
+        ];
+    }
+
+
 }

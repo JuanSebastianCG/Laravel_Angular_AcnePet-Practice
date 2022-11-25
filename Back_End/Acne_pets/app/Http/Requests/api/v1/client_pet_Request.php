@@ -28,4 +28,16 @@ class client_pet_Request extends FormRequest
             'pet_id' => 'required|integer',
         ];
     }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, mixed>
+     */
+    public function messages(){
+        return [
+            'client_id.required' => 'A client id is required',
+            'pet_id.required' => 'A pet id is required',
+        ];
+    }
 }
