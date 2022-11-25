@@ -25,11 +25,11 @@ Route::group(['prefix' => 'v1'], function () {
 
     Route::group(['prefix' => 'client_pets'], function () {
         Route::get('{user_id}', [client_pets_Controller::class, 'index']);/* show pets of the user */
-        Route::get('{user_id}/{pet_id}', [client_pets_Controller::class, 'index']);/* show pet of the user */
+        Route::get('{user_id}/{pet_id}', [client_pets_Controller::class, 'show']);/* show pet of the user */
 
         Route::post('{user_id}', [client_pets_Controller::class, 'store']); /* add pet to user */
         Route::delete('{user_id}/{pet_id}', [client_pets_Controller::class, 'destroy']); /* delete pet from user */
         Route::put('{user_id}/{pet_id}', [client_pets_Controller::class, 'update']); /* update pet from user */
     });
-
+    
 });
