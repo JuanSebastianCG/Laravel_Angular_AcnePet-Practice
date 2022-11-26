@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     /* form validation */
     this.registerForm = this.formBuilder.group({
       name: ['', Validators.required],
-      id: ['', Validators.required],
+      id: ['', Validators.required, Validators.min(0)],
     });
   }
   /*  form validation */
@@ -43,22 +43,21 @@ export class LoginComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-
+    /* ge user data */
     this.UserData.getUserById(this.registerForm.value.id).subscribe((data) => {
       this.data = data;
       console.log(this.data);
-
-      /* if the jason is empty */
-      if (this.data.name == undefined) 
-        this.registerForm.controls['name'].setErrors({ 'notFound': true });
         
-      /* compara name with the user */
+      /* compare name with user */
       if (this.data.name == this.registerForm.value.name) {
         alert("Bienvenido " + this.data.name);
       } else {
-        /* show wit form validation error */
+        /* show form validation error in login*/
         this.registerForm.controls['name'].setErrors({ 'notFound': true });
       }
+    }, (error) => {
+      /* if error 404 user not found*/
+      this.registerForm.controls['id'].setErrors({ 'notFound': true });
     });
 
   }
