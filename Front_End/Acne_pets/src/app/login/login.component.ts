@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-    /* ge user data */
+    /* get user data */
     this.UserData.getUserById(this.registerForm.value.id).subscribe((data) => {
       this.data = data;
       console.log(this.data);
@@ -51,10 +51,13 @@ export class LoginComponent implements OnInit {
       /* compare name with user */
       if (this.data.name == this.registerForm.value.name) {
         alert("Bienvenido " + this.data.name);
+        localStorage.setItem('login', JSON.stringify(this.data));
+        
       } else {
         /* show form validation error in login*/
         this.registerForm.controls['name'].setErrors({ 'notFound': true });
       }
+      
     }, (error) => {
       /* if error 404 user not found*/
       this.registerForm.controls['id'].setErrors({ 'notFound': true });
