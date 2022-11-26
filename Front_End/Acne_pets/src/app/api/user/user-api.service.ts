@@ -9,11 +9,16 @@ import { Ihttp } from './Ihttp';
 })
 export class UserApiService {
 
-  constructor(private datos : HttpClient) { }
+  constructor(private datos: HttpClient) { }
 
-  public getDatos(){
+  public getDatos() {
     return this.datos.get<Ihttp>('https://jsonplaceholder.typicode.com/users');
   }
-  
+
+  public getUserById(id: string) { 
+    /* search user on the api by id and  name */
+    return this.datos.get<Ihttp>('https://jsonplaceholder.typicode.com/users/' + id +"");
+  }
+
 
 }

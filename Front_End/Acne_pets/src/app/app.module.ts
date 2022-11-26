@@ -11,6 +11,9 @@ import { EditComponent } from './pets/edit/edit.component';
 import { LoginComponent } from './login/login.component';
 import { TemplateComponent } from './index/template/template.component';
 
+/* form */
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +25,7 @@ import { TemplateComponent } from './index/template/template.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],
