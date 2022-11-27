@@ -31,5 +31,7 @@ Route::group(['prefix' => 'v1'], function () {
         Route::delete('{user_id}/{pet_id}', [client_pets_Controller::class, 'destroy']); /* delete pet from user */
         Route::put('{user_id}/{pet_id}', [client_pets_Controller::class, 'update']); /* update pet from user */
     });
+
+
     
-});
+}); 

@@ -11,7 +11,7 @@ export class AutenticarGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
 
-      if(localStorage.getItem("login") == "true" || localStorage.getItem("login") != null){
+      if( localStorage.getItem("login") != null){
         alert("Bienvenido");
         return true
 

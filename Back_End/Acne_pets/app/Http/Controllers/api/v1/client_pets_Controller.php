@@ -4,10 +4,13 @@ namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Models\client_pet;
+use App\Models\Pet;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\api\v1\client_pet_Request;
-use App\Http\Resources\api\v1\client_pet_Resource;
+use App\Http\Resources\api\v1\pet_Resource;
+
+
 
 
 
@@ -18,9 +21,18 @@ class client_pets_Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
 
+     /* get pets from one user by the request endpoint */
+    public function index($client_id)
+    {
+        $client_pets = client_pet::where('client_id', $client_id)->get();
+
+        /* get from clien_pets the pet related */
+        $pets =  pet::whereIn('id', $client_pets->pluck('pet_id'))->get();
+
+        
+        return pet_Resource::collection($pets);
+        
     }
 
     /**

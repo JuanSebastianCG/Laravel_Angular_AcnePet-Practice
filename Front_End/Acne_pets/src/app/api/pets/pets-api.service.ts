@@ -1,9 +1,21 @@
 import { Injectable } from '@angular/core';
 
+import { HttpClient } from '@angular/common/http';
+import { Ihttp,IhttpData } from './Ihttp';
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class PetsApiService {
 
-  constructor() { }
+  constructor(private datos: HttpClient) { }
+  private url = 'http://127.0.0.1:8000/api/v1/';
+
+  public getPets() {
+    return this.datos.get<IhttpData>(this.url + 'pets')
+  }
+  
+
+
 }

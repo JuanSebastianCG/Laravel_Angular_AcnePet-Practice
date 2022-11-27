@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
     }
     /* get user data */
     this.UserData.getUserById(this.registerForm.value.id).subscribe((data) => {
+      /* json information from http */
       this.data = data;
       console.log(this.data);
         

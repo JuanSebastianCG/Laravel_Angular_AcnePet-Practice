@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+/* PET API */
+import { PetsApiService } from '../../api/pets/pets-api.service';
+import { Ihttp , IhttpData} from '../../api/pets/Ihttp';
+
+
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
@@ -7,9 +12,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateComponent implements OnInit {
 
-  constructor() { }
+  data = {} as Ihttp[];
+
+  constructor(private PetsApiService: PetsApiService) { }
 
   ngOnInit(): void {
+    this.getAllPets();
+  }
+
+  getAllPets() {
+   this.PetsApiService.getPets().subscribe((data) => {
+      
+      let pets : Ihttp[] = data.data;
+      this.data = pets;
+
+      return this.data;
+    });
   }
 
 }
