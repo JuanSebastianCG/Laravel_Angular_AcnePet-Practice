@@ -1,2 +1,21 @@
+<div class="container">
 
-<app-template></app-template>
+    <header class="blog-header py-3">
+
+    </header>
+    <div>
+        <router-outlet name="nav"></router-outlet>
+    </div>
+
+    <main role="main" class="container">
+        <router-outlet name="body"></router-outlet>
+        <router-outlet name="pets"></router-outlet>
+    </main>
+
+    <footer class="blog-footer">
+
+    </footer>
+
+    <a class="btn btn-sm btn-outline-secondary" routerLink="/login" routerLinkActive="active">Sign in</a>
+
+</div>
