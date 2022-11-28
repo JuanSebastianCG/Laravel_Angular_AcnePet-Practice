@@ -53,10 +53,13 @@ export class LoginComponent implements OnInit {
       if (this.data.name == this.registerForm.value.name) {
         alert("Bienvenido " + this.data.name);
         localStorage.setItem('login', JSON.stringify(this.data));
-        
+        /* return to template  */
+        window.location.href = "http://localhost:4200/";
+
       } else {
         /* show form validation error in login*/
         this.registerForm.controls['name'].setErrors({ 'notFound': true });
+
       }
       
     }, (error) => {
