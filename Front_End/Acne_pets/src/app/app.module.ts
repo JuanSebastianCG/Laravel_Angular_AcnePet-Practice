@@ -39,7 +39,10 @@ import { TemplateComponent } from './index/template/template.component';
     PostComponent,
     EditComponent,
     LoginComponent,
-    IndexComponent
+    IndexComponent,
+    TemplateComponent,
+    NavComponent,
+    
 
   ],
   imports: [

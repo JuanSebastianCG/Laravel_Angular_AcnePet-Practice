@@ -6,8 +6,10 @@
         <!-- sigin -->
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="btn btn-sm btn-outline-secondary" routerLink="/signin" routerLinkActive="active">Sign in</a>
             </li>
         </ul>
+        <a class="btn btn-sm btn-outline-secondary" routerLink="['/',{ outlets: {body: ['login'] } }]" routerLinkActive="active">Login</a>
+        
 </nav>
+
 

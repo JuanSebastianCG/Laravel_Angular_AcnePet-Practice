@@ -8,13 +8,21 @@ import { NavComponent } from './nav/nav.component';
 
 
 
+const routes: Route[] = [
+  { path: '', component: TemplateComponent, outlet: 'body' },
+  { path: '', component: NavComponent, outlet: 'nav' },
+
+];
+
+
+
 @NgModule({
   declarations: [
-    NavComponent,
-    TemplateComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forRoot(routes)
+    
   ]
 })
 export class IndexModule { }
