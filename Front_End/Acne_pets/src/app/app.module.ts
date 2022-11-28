@@ -42,6 +42,7 @@ import { TemplateComponent } from './index/template/template.component';
     IndexComponent,
     TemplateComponent,
     NavComponent,
+
     
 
   ],
@@ -52,8 +53,10 @@ import { TemplateComponent } from './index/template/template.component';
     AppRoutingModule,
     LoginModule,
     IndexModule,
+    PetsModule,
+    FormsModule,
     RouterModule.forRoot(routes),
-    PetsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

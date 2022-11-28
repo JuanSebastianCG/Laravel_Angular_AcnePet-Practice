@@ -9,8 +9,8 @@ import { NavComponent } from './nav/nav.component';
 
 
 const routes: Route[] = [
-  { path: '', component: TemplateComponent, outlet: 'body' },
-  { path: '', component: NavComponent, outlet: 'nav' },
+  { path: 'template', component: TemplateComponent, outlet: 'body' },
+  { path: 'nav', component: NavComponent, outlet: 'nav' },
 
 ];
 

@@ -8,8 +8,8 @@
             <li class="nav-item">
             </li>
         </ul>
-        <a class="btn btn-sm btn-outline-secondary" routerLink="/login" routerLinkActive="active">Login</a>
-        
+        <a class="btn btn-sm btn-outline-secondary" [routerLink]="['/',{ outlets: {body: ['login'] } }]">Sign in</a>
+
 </nav>
 
 
