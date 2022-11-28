@@ -12,9 +12,10 @@ class client_pet extends Model
     protected $fillable = [
         'client_id',
         'pet_id',
+        
     ];
 
-    public function pets()
+    public function pet()
     {
         return $this->belongsTo(Pet::class);
     }

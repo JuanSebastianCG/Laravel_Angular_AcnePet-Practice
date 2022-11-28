@@ -2,5 +2,10 @@
 
 
 <div *ngFor="let pet of this.data">
-   <li>{{pet.name}}</li>
+   <div class="card" style="width: 18rem;">
+      <div class="card-body">
+         <h5 class="card-title">{{pet.name}}</h5>
+         <p class="card-text">{{pet.age}}</p>
+      </div>
+   </div>
 </div>

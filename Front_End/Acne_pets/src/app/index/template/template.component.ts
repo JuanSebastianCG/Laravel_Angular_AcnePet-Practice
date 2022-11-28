@@ -21,6 +21,8 @@ export class TemplateComponent implements OnInit {
   }
 
   getAllPets() {
+
+    
    this.PetsApiService.getPets().subscribe((data) => {
       
       let pets : Ihttp[] = data.data;

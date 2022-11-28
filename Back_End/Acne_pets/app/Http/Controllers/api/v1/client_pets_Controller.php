@@ -4,7 +4,6 @@ namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Models\client_pet;
-use App\Models\Pet;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\api\v1\client_pet_Request;
@@ -28,9 +27,10 @@ class client_pets_Controller extends Controller
         $client_pets = client_pet::where('client_id', $client_id)->get();
 
         /* get from clien_pets the pet related */
-        $pets =  pet::whereIn('id', $client_pets->pluck('pet_id'))->get();
+        $pets =  $client_pets->map(function($client_pet){
+            return $client_pet->pet;
+        });
 
-        
         return pet_Resource::collection($pets);
         
     }
