@@ -1,1 +1,24 @@
 <p>post works!</p>
+
+<form [formGroup]="newPet" (ngSubmit)="addPets()">
+  <div>
+    <!-- name -->
+    <label class="form-label" for="name">Nombre de la mascota</label>
+
+    <input type="string" id="name" class="form-control"  formControlName="name" />
+
+    <!-- type -->
+    <label class="form-label" for="type">Tipo</label>
+
+    <input type="string" id="type" class="form-control"  formControlName="type" />
+
+    <!-- date_of_birth -->
+    <label class="form-label" for="date_of_birth">Fecha de nacimiento</label>
+
+    <input id="date_of_birth" type="date" class="form-control" formControlName="date_of_birth" />
+
+    <div class="pt-1 mb-4">
+      <button class="btn btn-dark btn-lg btn-block" type="submit">Añadir mascota</button>
+    </div>
+  </div>
+</form>
