@@ -13,6 +13,3 @@ export interface Ihttp {
         }
 };
 
-export interface IhttpData {
-    data: Ihttp[];
-}

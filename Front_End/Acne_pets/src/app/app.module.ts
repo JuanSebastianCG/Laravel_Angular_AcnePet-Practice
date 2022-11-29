@@ -23,7 +23,6 @@ import { NavComponent } from './index/nav/nav.component';
 
 
 export const routes: Route[] = [
-  { path: '', component:IndexComponent , outlet: 'pets' },
   { path: '', component: TemplateComponent, outlet: 'body' },
   { path: '', component: NavComponent, outlet: 'nav' },
 ];
@@ -42,9 +41,6 @@ import { TemplateComponent } from './index/template/template.component';
     IndexComponent,
     TemplateComponent,
     NavComponent,
-
-    
-
   ],
   imports: [
     BrowserModule,

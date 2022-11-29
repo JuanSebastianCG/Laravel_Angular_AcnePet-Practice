@@ -25,7 +25,7 @@
                   <div class="form-outline mb-4">
                     <label class="form-label" for="id">Id de Usuario</label>
 
-                    
+                    <!-- id -->
                     <input type="number" id="id" class="form-control" min="0" formControlName="id" />
                     <!--  error if negative-->
                     <div *ngIf="registerForm.get('id').errors?.min">
@@ -41,7 +41,7 @@
                     </div>
                   </div>
 
-
+                <!--name  -->
                   <div class="form-outline mb-4">
                     <label class="form-label" for="name">Nombre de usuario</label>
                     <input type="name" id="name" class="form-control form-control-lg" formControlName="name" />

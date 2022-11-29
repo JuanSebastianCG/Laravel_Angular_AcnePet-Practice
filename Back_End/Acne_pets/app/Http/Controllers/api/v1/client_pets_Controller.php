@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Models\client_pet;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests\api\v1\client_pet_Request;
@@ -41,10 +42,22 @@ class client_pets_Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $client_id)
     {
-        //
+        $validation = new client_pet_Request();
+        $validation = $validation->rules();
+        $validator = \Validator::make($request->all(), $validation);
+        if ($validator->passes()) {
+            $client_pet = new client_pet();
+            $client_pet->client_id = $client_id;
+            $client_pet->pet_id = $request->pet_id;
+            $client_pet->save();
+            return response()->json(['data' => new pet_Resource($client_pet->pet)], 201);
+        } else {
+            return response()->json(['error' => $validator->errors()->all()], 400);
+        }
     }
+
 
     /**
      * Display the specified resource.

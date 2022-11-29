@@ -4,16 +4,16 @@ import { CommonModule } from '@angular/common';
 /* modules */
 import { IndexComponent } from './index/index.component';
 import { PostComponent } from './post/post.component';
+import { EditComponent } from './edit/edit.component';
+
 
 /* route module */
 import { Route, RouterModule } from '@angular/router';
 
-
-
 const routes: Route[] = [
-  { path: '', component: IndexComponent, outlet: 'pets' },
-  { path: 'post', component: PostComponent, outlet : 'pets' },
-
+  { path: 'index', component: IndexComponent, outlet: 'body' },
+  { path: 'post', component: PostComponent, outlet : 'body' },
+  { path: 'edit', component: EditComponent, outlet : 'body' },
 ];
 
 
@@ -21,7 +21,7 @@ const routes: Route[] = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forChild(routes)
   ]
 })
 export class PetsModule { }

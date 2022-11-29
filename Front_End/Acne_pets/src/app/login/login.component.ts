@@ -26,6 +26,9 @@ export class LoginComponent implements OnInit {
   constructor(private UserData: UserApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    /* clean local storage */
+    localStorage.clear();
+    
     /* form validation */
     this.registerForm = this.formBuilder.group({
       name: ['', Validators.required],
@@ -43,6 +46,7 @@ export class LoginComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
+    
     /* get user data */
     this.UserData.getUserById(this.registerForm.value.id).subscribe((data) => {
       /* json information from http */

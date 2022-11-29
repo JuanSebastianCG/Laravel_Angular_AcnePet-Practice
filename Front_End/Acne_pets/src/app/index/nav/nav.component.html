@@ -13,10 +13,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Adopt a pet</a>
             </li>
+            <!-- add pet -->
             <li class="nav-item">
-                <a class="nav-link" href="#">Register a pet</a>
+              <!--    { path: 'pets/index', component: IndexComponent, outlet: 'body', canActivate: [AutenticarGuard]}, -->
+                <a class="nav-link" [routerLink]="['/',{ outlets: {body: ['postPets'] } }]">Add a pet</a>
             </li>
-            
         </ul>
 
         <ul class="nav navbar-nav navbar-right">

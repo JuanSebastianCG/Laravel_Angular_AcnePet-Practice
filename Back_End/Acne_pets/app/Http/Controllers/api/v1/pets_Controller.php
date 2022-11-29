@@ -19,7 +19,7 @@ class pets_Controller extends Controller
      */
     public function index()
     {
-        return  response()->json(['data' => pet_Resource::collection(Pet::all())], 200);
+        return  response()->json(pet_Resource::collection(Pet::all()), 200);
     }
 
     /**
@@ -39,9 +39,9 @@ class pets_Controller extends Controller
             $pet->date_of_birth = $request->date_of_birth;
             $pet->type = $request->type;
             $pet->save();
-            return response()->json(['data' => new pet_Resource($pet)], 201);
+            return response()->json( new pet_Resource($pet), 201);
         } else {
-            return response()->json(['error' => $validator->errors()->all()], 400);
+            return response()->json( $validator->errors()->all(), 400);
         }
     }
 
@@ -53,7 +53,7 @@ class pets_Controller extends Controller
      */
     public function show(Pet $pet)
     {
-        return response()->json(['data' => new pet_Resource($pet)], 200);
+        return response()->json(new pet_Resource($pet), 200);
     }
 
     /**
@@ -70,15 +70,16 @@ class pets_Controller extends Controller
         $validation = new pet_Request();
         $validation = $validation->rules();
         $validator = \Validator::make($request->all(), $validation);
+
         if ($validator->passes()) {
             /* update pet */
             $pet->name = $request->name;
             $pet->date_of_birth = $request->date_of_birth;
             $pet->type = $request->type;
             $pet->save();
-            return response()->json(['data' => new pet_Resource($pet)], 200);
+            return response()->json(new pet_Resource($pet), 200);
         } else {
-            return response()->json(['data' => $validator->errors()], 400);
+            return response()->json($validator->errors(), 400);
         }
 
     }
@@ -92,6 +93,6 @@ class pets_Controller extends Controller
     public function destroy(Pet $pet)
     {
         $pet->delete();
-        return response()->json(['data' => new pet_Resource($pet)], 200);
+        return response()->json( new pet_Resource($pet), 200);
     }
 }

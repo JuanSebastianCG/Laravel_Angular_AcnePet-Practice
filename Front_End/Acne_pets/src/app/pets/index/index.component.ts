@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 /* PET API */
 import { PetsApiService } from '../../api/pets/pets-api.service';
-import { Ihttp , IhttpData} from '../../api/pets/Ihttp';
+import { Ihttp} from '../../api/pets/Ihttp';
 
 @Component({
   selector: 'app-index',
@@ -22,11 +22,9 @@ export class IndexComponent implements OnInit {
   }
 
   getAllPets() {
-    this.PetsApiService.getPets().subscribe((data) => {
-       
-       let pets : Ihttp[] = data.data;
-       this.data = pets;
- 
+    this.PetsApiService.getPets().subscribe((httpRequest) => {
+       console.log(httpRequest);
+       this.data = httpRequest;
        return this.data;
      });
    }

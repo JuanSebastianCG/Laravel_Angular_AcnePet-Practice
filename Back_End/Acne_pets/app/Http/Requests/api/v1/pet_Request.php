@@ -43,7 +43,6 @@ class pet_Request extends FormRequest
             'name.required' => 'A name is required',
             'date_of_birth.required' => 'A date of birth is required',
             'type.required' => 'A type is required',
-
         ];
     }
 

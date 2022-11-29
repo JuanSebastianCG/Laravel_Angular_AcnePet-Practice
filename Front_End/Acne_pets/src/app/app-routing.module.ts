@@ -2,19 +2,30 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 /* module login */
-import { LoginModule } from './login/login.module';
-
 import { TemplateComponent } from './index/template/template.component';
 import { LoginComponent } from './login/login.component';
+
+/* pet  */
+import { IndexComponent } from './pets/index/index.component';
+import { PostComponent } from './pets/post/post.component';
+
+/* guard */
+import { AutenticarGuard } from './guards/autenticar.guard';
 
 
 /* use the module LoginComponent to put login in outlet body */
 const routes: Routes = [
-  { path: 'login', component: LoginComponent , outlet: 'body' },
-  { path: 'index', component: TemplateComponent },
+  { path: 'index', component: TemplateComponent, outlet: 'body'},
+  { path: 'login', component: LoginComponent , outlet: 'body'},
+  
+  { path: 'indexPets', component: IndexComponent, outlet: 'body', canActivate: [AutenticarGuard]},
+  { path: 'postPets', component: PostComponent, outlet: 'body'},
+
+
+  
 ];
 
-
+/*  */
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

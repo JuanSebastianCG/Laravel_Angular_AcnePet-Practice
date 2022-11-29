@@ -10,13 +10,11 @@ export class AutenticarGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-
+      
       if( localStorage.getItem("login") != null){
-        alert("Bienvenido");
         return true
 
       }else{
-        alert("No tienes permiso para entrar");
         return false;
       }
   }

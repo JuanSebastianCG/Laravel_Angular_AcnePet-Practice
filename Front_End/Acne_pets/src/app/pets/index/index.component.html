@@ -9,7 +9,11 @@
                       {{pet.name}}
                     </h3>
                     <div class="mb-1 text-muted">{{pet.date_of_birth}} Age : {{pet.age}}</div>
-                    <!--show  age -->
+
+                    <!-- gren -->
+                    <div *ngIf="pet.client_pet == null" class="mb-1text-success adoptame" >Adoptame</div>
+                    <div *ngIf="pet.client_pet != null" class="mb-1 text-danger adoptado">Adoptado</div>
+                    
                 </div>
             </div>
 
