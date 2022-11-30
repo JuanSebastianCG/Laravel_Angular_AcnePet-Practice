@@ -19,6 +19,7 @@ export class NavComponent implements OnInit {
     console.log('logout');
     localStorage.clear();
     window.location.reload();
+    window.location.href = "http://localhost:4200/";
   }
 
 

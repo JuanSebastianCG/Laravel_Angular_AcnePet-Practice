@@ -55,7 +55,8 @@ export class PostComponent implements OnInit {
     /* edit mascota */
     let petId = this.route.snapshot.queryParamMap.get('id')
     let user = Number (localStorage.getItem('id'));
-    if (petId != null)  { 
+    if (petId != null)  {
+       
       this.PetData.editPetFromClient(user, Number(petId),this.newPet.value.name, this.newPet.value.type, this.newPet.value.date_of_birth).subscribe((data) => {
           alert("Mascota editada");
           window.location.href = "http://localhost:4200/(body:indexPets)";
