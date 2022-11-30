@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\api\v1\client_pet_Request;
 use App\Http\Requests\api\v1\pet_Request;
+use App\Http\Requests\api\v1\pet_Request_client;
 
 use App\Http\Resources\api\v1\pet_Resource;
 
@@ -82,14 +83,12 @@ class client_pets_Controller extends Controller
      */
     public function update(Request $request,$client_id, $pet)
     {
-        $validation = new pet_Request();
+        $validation = new petrequest_client();
         $validation = $validation->rules();
         $validator = \Validator::make($request->all(), $validation);
         if ($validator->passes()) {
             $client_pet = client_pet::where('client_id', $client_id)->where('pet_id', $pet)->first();
             $client_pet->pet->name = $request->name;
-            $client_pet->pet->date_of_birth = $request->date_of_birth;
-            $client_pet->pet->type = $request->type;
             $client_pet->pet->save();
             return response()->json( new pet_Resource($client_pet->pet), 200);
         } else {

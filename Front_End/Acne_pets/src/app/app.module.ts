@@ -15,7 +15,6 @@ import { AppRoutingModule } from './app-routing.module';
 /* Components */
 import { IndexComponent } from './pets/index/index.component';
 import { PostComponent } from './pets/post/post.component';
-import { EditComponent } from './pets/edit/edit.component';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -36,7 +35,6 @@ import { TemplateComponent } from './index/template/template.component';
   declarations: [
     AppComponent,
     PostComponent,
-    EditComponent,
     LoginComponent,
     IndexComponent,
     TemplateComponent,

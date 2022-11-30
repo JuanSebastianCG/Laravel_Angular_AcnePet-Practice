@@ -18,8 +18,9 @@ const routes: Routes = [
   { path: 'index', component: TemplateComponent, outlet: 'body'},
   { path: 'login', component: LoginComponent , outlet: 'body'},
   
-  { path: 'indexPets', component: IndexComponent, outlet: 'body', canActivate: [AutenticarGuard]},
+  { path: 'indexPets', component: IndexComponent, outlet: 'body',data: {id: 'True'}, canActivate: [AutenticarGuard]},
   { path: 'postPets', component: PostComponent, outlet: 'body'},
+  { path: 'editPets', component: PostComponent, outlet: 'body',data: {editConfirmation: 'True'}},
 
 
   

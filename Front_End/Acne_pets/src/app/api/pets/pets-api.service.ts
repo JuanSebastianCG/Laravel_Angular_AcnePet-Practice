@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
+ import { HttpClient } from '@angular/common/http';
 import { Ihttp } from './Ihttp';
 
 
@@ -29,6 +29,21 @@ export class PetsApiService {
     })
   }
 
+  public addpetToClient(idClient: number, idPet: number) {
+    return this.datos.post<Ihttp>(this.url + 'clients/'+idClient+'/pets', {
+      pet_id: idPet
+    })
+  }
 
+
+  public deletePet(idClient: number, idPet: number) {
+    return this.datos.delete<Ihttp>(this.url + "clients/" + idClient + "/pets/" + idPet)
+  }
+
+  public editPetFromClient(idClient: number, idPet: number, name: string) {
+    return this.datos.put<Ihttp>(this.url + "clients/" + idClient + "/pets/" + idPet, {
+      name: name,
+    })
+  }
 
 }

@@ -13,6 +13,19 @@
                     <!-- gren -->
                     <div *ngIf="pet.client_pet == null" class="mb-1text-success adoptame" >Adoptame</div>
                     <div *ngIf="pet.client_pet != null" class="mb-1 text-danger adoptado">Adoptado</div>
+
+                    <!-- button to delete -->
+                    <div *ngIf="confirmation == true" class="card-link">
+                        <button class="btn btn-danger" (click)="deletePet(pet.id)">Delete</button>
+                        <!-- edit -->
+                        <button class="btn btn-warning" [routerLink]="['/',{ outlets: {body: ['postPets'] } }]" >Edit</button>
+
+                    </div>
+                    <!-- button to add -->
+                    <div *ngIf="confirmation == false && sesionId !== -1 && pet.client_pet == null" class="card-link">
+                        <button class="btn btn-success" (click)="addPet(pet.id)">Add</button>
+                    </div>
+
                     
                 </div>
             </div>
