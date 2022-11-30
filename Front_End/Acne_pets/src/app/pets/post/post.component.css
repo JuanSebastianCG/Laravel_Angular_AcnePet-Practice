@@ -10,3 +10,48 @@
 .button{
     text-align: center;
 }
+
+.formPet{
+    margin-top: 5%;
+    /* center input inside */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    
+}
+
+.imagePet{
+    width: 100%;
+    height: 61%;
+    margin-top: 11%;
+
+
+}
+
+.formInput{
+    padding: 9%;
+    border: 2px solid #f0bf8e;
+    border-radius: 5px;
+    margin-left: 40%;
+    
+}
+
+.buttonEnviar{
+
+    background-color: #f0bf8e;
+    border: 1px solid #f0bf8e;
+    color: white;
+}
+.buttonEnviar:hover{
+    background-color: #f1b4b4;
+    border: 1px solid #f1b4b4;
+    color: white;
+}
+
+.linea{
+    border: 1px solid #f0bf8e;
+
+
+}

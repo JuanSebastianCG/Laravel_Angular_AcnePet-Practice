@@ -1,5 +1,5 @@
 <!-- create nav -->
-<nav class="navbar navbar-light bg-light mb-3 navbar-expand-lg">
+<nav class="navbar navbar-light bg-light mb-3 navbar-expand-lg navbarE">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" [routerLink]="['/',{ outlets: {body: ['index'] } }]">
@@ -15,7 +15,7 @@
             <!-- add pet -->
             <li class="nav-item">
                 <!--    { path: 'pets/index', component: IndexComponent, outlet: 'body', canActivate: [AutenticarGuard]}, -->
-                <a class="nav-link" [routerLink]="['/',{ outlets: {body: ['postPets'] } }]">Agregar Mascotas</a>
+                <a class="nav-link" [routerLink]="['/',{ outlets: {body: ['postPets'] } }]"   >Añadir Mascota</a>
             </li>
         </ul>
 

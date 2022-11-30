@@ -1,29 +1,30 @@
+<div class="container py-2 h-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col col-xl-9">
+      <div class="card" style="border-radius: 1rem ; ">
+        <div class="row g-0">
+          <div class="col-md-6 col-lg-5 d-none d-md-block">
+            <img src="https://wallpapershome.com/images/pages/pic_v/7175.jpg" alt="login form" class="img-fluid"
+              style="border-radius: 1rem 0 0 1rem #f0bf8e; width: 90%; height: 100%;" />
+          </div>
+          <div class="col-md-4 col-lg-6 d-flex align-items-center">
+            <div class="card-body p-4 p-lg-5 text-black">
+              <!-- fromulario -->
+              <form [formGroup]="registerForm" (ngSubmit)="login()">
+                <div class="d-flex align-items-center mb-3 pb-1">
+                  <span class="h1 fw-bold mb-0">Acne company</span>
+                </div>
 
-  <div class="container py-2 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col col-xl-9">
-        <div class="card" style="border-radius: 1rem;">
-          <div class="row g-0">
-            <div class="col-md-6 col-lg-5 d-none d-md-block">
-              <img src="https://wallpapershome.com/images/pages/pic_v/7175.jpg"
-                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; width: 90%; height: 100%;" />
-            </div>
-            <div class="col-md-4 col-lg-6 d-flex align-items-center">
-              <div class="card-body p-4 p-lg-5 text-black">
-                <!-- fromulario -->
-                <form [formGroup]="registerForm" (ngSubmit)="login()">
-                  <div class="d-flex align-items-center mb-3 pb-1">
-                    <span class="h1 fw-bold mb-0">Acne company</span>
-                  </div>
+                <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
 
-                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="id">Id de Usuario</label>
 
-                  <div class="form-outline mb-4">
-                    <label class="form-label" for="id">Id de Usuario</label>
+                  <!-- id -->
+                  <input type="number" id="id" class="form-control" min="0" formControlName="id" />
+                  <!--  error if negative-->
 
-                    <!-- id -->
-                    <input type="number" id="id" class="form-control" min="0" formControlName="id" />
-                    <!--  error if negative-->
+                  <div class="errors">
                     <div *ngIf="registerForm.get('id').errors?.min">
                       <div class="alert alert-danger">El id no puede ser negativo</div>
                     </div>
@@ -36,12 +37,15 @@
                       <div class="alert alert-danger">El id no se encuentra registrado</div>
                     </div>
                   </div>
+                </div>
 
                 <!--name  -->
-                  <div class="form-outline mb-4">
-                    <label class="form-label" for="name">Nombre de usuario</label>
-                    <input type="name" id="name" class="form-control form-control-lg" formControlName="name" />
-                    <!-- error if empty -->
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="name">Nombre de usuario</label>
+                  <input type="name" id="name" class="form-control form-control-lg" formControlName="name" />
+                  <!-- error if empty -->
+
+                  <div class="errors">
                     <div *ngIf="registerForm.get('name').errors?.required">
                       <div class="alert alert-danger">El nombre es requerido</div>
                     </div>
@@ -50,17 +54,18 @@
                       <div class="alert alert-danger">El nombre no se coincide con la cuenta</div>
                     </div>
                   </div>
+                </div>
 
-                  <div class="pt-1 mb-4">
-                    <button class="btn btn-dark btn-lg btn-block" type="submit">Sign in</button>
-                  </div>
+                <div class="pt-1 mb-4">
+                  <button class="btn btn-dark btn-lg btn-block" type="submit">Sign in</button>
+                </div>
 
-                </form>
+              </form>
 
-              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>

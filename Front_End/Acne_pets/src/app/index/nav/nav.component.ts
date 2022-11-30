@@ -22,5 +22,9 @@ export class NavComponent implements OnInit {
     window.location.href = "http://localhost:4200/";
   }
 
+  reload(){
+    window.location.reload();
+  }
+
 
 }

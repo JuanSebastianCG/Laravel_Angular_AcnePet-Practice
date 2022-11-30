@@ -9,28 +9,39 @@
         </div>
     </div>
 
-    <div class="row mb-2 mt-3">
-        <div *ngFor="let pet of this.data" class="col-md-6">
-            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+    <div class="row mb-2 mt-3 ">
+        <div *ngFor="let pet of this.data" class="col-md-6 ">
+            <div class="cardPet card flex-md-row mb-4 box-shadow h-md-250 ">
                 <div class="card-body d-flex flex-column align-items-center">
-                    <strong class="d-inline-block mb-2 text-primary" style="text-transform: capitalize;">Tipo de mascota: {{pet.type}}</strong>
+                    <strong class="d-inline-block mb-2 " style="text-transform: capitalize; color: #ebc8a6">Tipo de
+                        mascota: {{pet.type}}</strong>
                     <h3 class="mb-0">Nombre: {{pet.name}}</h3>
 
                     <div class="mb-1 text-muted">Edad: {{pet.age}}</div>
                     <!-- gren -->
                     <!-- <div *ngIf="pet.client_pet != null" class="mb-1 text-danger adoptado">Adoptado</div> -->
-
-                    <!-- button to delete -->
-                    <div *ngIf="confirmation == true" class="card-link">
-                        <button class="btn btn-danger" (click)="deletePet(pet.id)">Poner en adopción</button>
-                        <!-- edit -->
-                        <button class="btn btn-info" [routerLink]="['/',{ outlets: {body: ['postPets'] } }]" [queryParams]="{id: pet.id}">Editar mascota</button>
-                    </div>
-                    <!-- button to add -->
-                    <div *ngIf="confirmation == false && sesionId !== -1 && pet.client_pet == null" class="card-link">
-                        <button class="btn btn-success" (click)="addPet(pet.id)">Adoptar</button>
-                    </div>
                 </div>
+
+                <!-- button to delete -->
+                <div *ngIf="confirmation == true" class="card-link">
+
+                    <button class="btn buttonIconPet" (click)="deletePet(pet.id)">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1017/1017530.png" width="20px" height="20px">
+                    </button>
+                    <!-- edit -->
+                    <button class="btn buttonIconPet" [routerLink]="['/',{ outlets: {body: ['postPets'] } }]"
+                        [queryParams]="{id: pet.id}">
+                        <img src="data:image/png;base64,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" width="20px" height="20px">
+                    </button>
+                </div>
+
+                <!-- use image adoptme.png in the button -->
+                <div *ngIf="confirmation == false && sesionId !== -1 && pet.client_pet == null">
+                    <button class="btn adoptMe" (click)="addPet(pet.id)">
+                        <img src="../../../assets/img/petsAdopt.png" alt="adoptme" width="100px" height="100px">
+                    </button>
+                </div>
+
             </div>
         </div>
     </div>

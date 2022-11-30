@@ -2,3 +2,10 @@
     margin-left: 150px;
     margin-right: 150px;
 }
+
+.navbarE{
+    background-color: #f8f5f2;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #ffffff;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
+}

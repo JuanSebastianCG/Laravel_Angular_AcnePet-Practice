@@ -1,6 +1,46 @@
+
+/* style="position: absolute; top: 0; right: 0; margin: 12px;"  */
+.adoptMe{
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 8px;
+
+    /* only show border of left */
+    border-left: 4px solid #fcf7f2;
+    /*when the mouse is touchin the button expand image*/
+    border-radius: 5px;
+    
+    
+}
+    /*when the mouse is touchin the button expand image*/
+.adoptMe:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 2px 1px #f0bf8e;
+    border-radius: 5px;
+}
+
+/* delte pet */
+.buttonIconPet{
+    /* only show border of left */
+    border-left: 4px solid #fcf7f2;
+    
+}
+
+/* when the mouse is touchin the button expand image*/
+.buttonIconPet:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 2px 1px #f1b4b4;
+    border-radius: 5px;
+}
+
+
+
 .content{
     width: 100wh;
     height: 100vh;
+    
 }
 
 .jumbotron{
@@ -11,15 +51,14 @@
     text-align: center;
 }
 
-.adoptado{
-    color: red;
-}
-.adoptame{
-    color: green;
-}
-
 .btn{
     margin-right: 10px;
     color: white;
+}
+
+.cardPet{
+    margin: 10px;
+    border: 4px solid #fcf7f2;
+    
 }
 

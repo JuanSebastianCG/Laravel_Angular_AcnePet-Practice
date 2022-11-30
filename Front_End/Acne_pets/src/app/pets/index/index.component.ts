@@ -10,6 +10,8 @@ import { Ihttp } from '../../api/pets/Ihttp';
 import { ActivatedRoute } from '@angular/router';
 
 
+
+
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -35,14 +37,16 @@ export class IndexComponent implements OnInit {
     this.confirmation = false;
 
     let id = localStorage.getItem('id');
+    /* if  user is not logged in */
     if (id != null) {
       this.sesionId = Number(id);
     }else{
       this.sesionId = -1;
     }
 
+    /* get route params */
     this.route.data.subscribe((data) => {
-
+      /* get data from route, if come from show your pets*/
       if (data['id'] == 'True') {
         this.confirmation = true;
         this.getPetsFromClient(this.sesionId);
