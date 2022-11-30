@@ -1,4 +1,4 @@
-<p>post works!</p>
+
 
 <form [formGroup]="newPet" (ngSubmit)="addPets()">
   <div>
@@ -7,10 +7,14 @@
 
     <input type="string" id="name" class="form-control"  formControlName="name" />
 
-    <!-- type -->
-    <label class="form-label" for="type">Tipo</label>
+    <label class="form-label" for="type">Tipo de mascota</label>
+    <!-- type enum perro gato drop down -->
+    <select id="type" class="form-control" formControlName="type">
+      <option value="perro">Perro</option>
+      <option value="gato">Gato</option>
+    </select>
 
-    <input type="string" id="type" class="form-control"  formControlName="type" />
+    
 
     <!-- date_of_birth -->
     <label class="form-label" for="date_of_birth">Fecha de nacimiento</label>

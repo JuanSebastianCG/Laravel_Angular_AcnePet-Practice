@@ -32,10 +32,12 @@ export class PostComponent implements OnInit {
     if (this.newPet.invalid) {
       return;
     }
-    console.log(this.newPet.value.name)
-    console.log(this.newPet.value.type)
-    console.log(this.newPet.value.date_of_birth)
-    this.PetData.addPet(this.newPet.value.name,this.newPet.value.type,this.newPet.value.date_of_birth)
+    this.PetData.addPet(this.newPet.value.name,this.newPet.value.type,this.newPet.value.date_of_birth).subscribe(
+       (data) => {
+        if (data) {
+         window.location.href = '';
+        }
+      })
   }
 
 }

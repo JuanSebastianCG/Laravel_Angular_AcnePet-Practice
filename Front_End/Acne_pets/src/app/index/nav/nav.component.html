@@ -8,7 +8,8 @@
 
         <ul class="nav navbar-nav ">
             <li class="nav-item">
-                <a class="nav-link" href="#">Watch your pets</a>
+                <!--  -->
+                <a class="nav-link" [routerLink]="['/',{ outlets: {body: ['indexPets'] } }]">Ver tus Mascotas</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Adopt a pet</a>
@@ -16,7 +17,7 @@
             <!-- add pet -->
             <li class="nav-item">
               <!--    { path: 'pets/index', component: IndexComponent, outlet: 'body', canActivate: [AutenticarGuard]}, -->
-                <a class="nav-link" [routerLink]="['/',{ outlets: {body: ['postPets'] } }]">Add a pet</a>
+                <a class="nav-link" [routerLink]="['/',{ outlets: {body: ['postPets'] } }]">Agregar Mascotas</a>
             </li>
         </ul>
 

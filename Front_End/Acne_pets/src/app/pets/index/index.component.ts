@@ -18,7 +18,13 @@ export class IndexComponent implements OnInit {
   constructor(private PetsApiService: PetsApiService) { }
 
   ngOnInit(): void {
-    this.getAllPets();
+
+    if (localStorage.getItem('id') == null) {
+      this.getAllPets();
+    } else {
+      this.getPetsFromClient(Number(localStorage.getItem('id')));
+    }
+    
   }
 
   getAllPets() {
@@ -29,6 +35,15 @@ export class IndexComponent implements OnInit {
      });
    }
 
-   getClientPets(id: number) {
+   getPetsFromClient(id: number) {
+    this.PetsApiService.getPetsFromClient(id).subscribe((httpRequest) => {
+       console.log(httpRequest);
+       this.data = httpRequest;
+       return this.data;
+     });
    }
+
+   
+
+
 }

@@ -16,15 +16,17 @@ export class PetsApiService {
     return this.datos.get<Ihttp[]>(this.url + 'pets')
   }
 
-  public addPet(name: String, type: String, date_of_birth: Date){
-    let body = {
+  public getPetsFromClient(id: number) {
+    return this.datos.get<Ihttp[]>(this.url + 'clients/'+id+'/pets')
+  }
 
-      name: name,
-      date_of_birth: date_of_birth,
-      type: type
-    }
+  public addPet( name: string, type: string, date_of_birth: string) {
     
-    this.datos.post<any>(this.url + 'pets/post', body).subscribe()
+    return this.datos.post<Ihttp>(this.url + 'pets', {
+      name: name,
+      type: type,
+      date_of_birth: date_of_birth
+    })
   }
 
 

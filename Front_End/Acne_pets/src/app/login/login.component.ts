@@ -55,8 +55,10 @@ export class LoginComponent implements OnInit {
         
       /* compare name with user */
       if (this.data.name == this.registerForm.value.name) {
-        alert("Bienvenido " + this.data.name);
+        
         localStorage.setItem('login', JSON.stringify(this.data));
+        localStorage.setItem('id', JSON.stringify(this.data.id));
+
         /* return to template  */
         window.location.href = "http://localhost:4200/";
 
