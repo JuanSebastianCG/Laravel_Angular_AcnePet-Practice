@@ -24,7 +24,6 @@ class client_pet_Request extends FormRequest
     public function rules()
     {
         return [
-            'client_id' => 'required|integer',
             'pet_id' => 'required|integer',
         ];
     }
@@ -36,7 +35,6 @@ class client_pet_Request extends FormRequest
      */
     public function messages(){
         return [
-            'client_id.required' => 'A client id is required',
             'pet_id.required' => 'A pet id is required',
         ];
     }

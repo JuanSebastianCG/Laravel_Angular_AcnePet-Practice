@@ -8,6 +8,8 @@ use App\Models\client_pet;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\api\v1\client_pet_Request;
+use App\Http\Requests\api\v1\pet_Request;
+
 use App\Http\Resources\api\v1\pet_Resource;
 
 
@@ -32,7 +34,7 @@ class client_pets_Controller extends Controller
             return $client_pet->pet;
         });
 
-        return pet_Resource::collection($pets);
+        return response()->json(pet_Resource::collection($pets), 200);
         
     }
 
@@ -52,9 +54,9 @@ class client_pets_Controller extends Controller
             $client_pet->client_id = $client_id;
             $client_pet->pet_id = $request->pet_id;
             $client_pet->save();
-            return response()->json(['data' => new pet_Resource($client_pet->pet)], 201);
+            return response()->json( new pet_Resource($client_pet->pet), 201);
         } else {
-            return response()->json(['error' => $validator->errors()->all()], 400);
+            return response()->json( $validator->errors()->all(), 400);
         }
     }
 
@@ -65,11 +67,12 @@ class client_pets_Controller extends Controller
      * @param  \App\Models\client_pet  $client_pet
      * @return \Illuminate\Http\Response
      */
-    public function show(client_pet $client_pet)
+    public function show($client_id, $pet)
     {
-        //
+        $client_pet = client_pet::where('client_id', $client_id)->where('pet_id', $pet)->first();
+        return response()->json(new pet_Resource($client_pet->pet), 200);
+       
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -77,9 +80,22 @@ class client_pets_Controller extends Controller
      * @param  \App\Models\client_pet  $client_pet
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, client_pet $client_pet)
+    public function update(Request $request,$client_id, $pet)
     {
-        //
+        $validation = new pet_Request();
+        $validation = $validation->rules();
+        $validator = \Validator::make($request->all(), $validation);
+        if ($validator->passes()) {
+            $client_pet = client_pet::where('client_id', $client_id)->where('pet_id', $pet)->first();
+            $client_pet->pet->name = $request->name;
+            $client_pet->pet->date_of_birth = $request->date_of_birth;
+            $client_pet->pet->type = $request->type;
+            $client_pet->pet->save();
+            return response()->json( new pet_Resource($client_pet->pet), 200);
+        } else {
+            return response()->json( $validator->errors()->all(), 400);
+        }
+    
     }
 
     /**
@@ -88,8 +104,11 @@ class client_pets_Controller extends Controller
      * @param  \App\Models\client_pet  $client_pet
      * @return \Illuminate\Http\Response
      */
-    public function destroy(client_pet $client_pet)
+    public function destroy($client_id, $pet)
     {
-        //
+        $client_pet = client_pet::where('client_id', $client_id)->where('pet_id', $pet)->first();
+        $client_pet->delete();
+        return response()->json($client_pet, 200);
+        
     }
 }
