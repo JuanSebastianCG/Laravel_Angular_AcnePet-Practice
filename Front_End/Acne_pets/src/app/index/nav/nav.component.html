@@ -13,14 +13,24 @@
             </li>
             <!-- add pet -->
             <li class="nav-item">
-              <!--    { path: 'pets/index', component: IndexComponent, outlet: 'body', canActivate: [AutenticarGuard]}, -->
+                <!--    { path: 'pets/index', component: IndexComponent, outlet: 'body', canActivate: [AutenticarGuard]}, -->
                 <a class="nav-link" [routerLink]="['/',{ outlets: {body: ['postPets'] } }]">Agregar Mascotas</a>
             </li>
         </ul>
 
-        <ul class="nav navbar-nav navbar-right">
-            <a class="btn btn-sm btn-outline-secondary" [routerLink]="['/',{ outlets: {body: ['login'] } }]">Sign in</a>
+        <!-- if  -->
+        <div *ngIf="session == null" class="navbar-nav ml-auto">
+            <ul class="nav navbar-nav navbar-right">
+                <a class="btn btn-sm btn-outline-secondary" [routerLink]="['/',{ outlets: {body: ['login'] } }]">Signin</a>
+            </ul>
+        </div>
+        <!-- else -->
+        <div *ngIf="session != null" class="navbar-nav ml-auto">
+            <ul class="nav navbar-nav navbar-right">
+                <a class="btn btn-sm btn-outline-secondary" (click)="logout()">Logout</a>
+            </ul>
+        </div>
 
-        </ul>
+
     </div>
 </nav>

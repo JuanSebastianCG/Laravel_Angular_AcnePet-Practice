@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\api\v1\client_pet_Request;
 use App\Http\Requests\api\v1\pet_Request;
-use App\Http\Requests\api\v1\pet_Request_client;
+
 
 use App\Http\Resources\api\v1\pet_Resource;
 
@@ -83,7 +83,7 @@ class client_pets_Controller extends Controller
      */
     public function update(Request $request,$client_id, $pet)
     {
-        $validation = new petrequest_client();
+        $validation = new pet_Request();
         $validation = $validation->rules();
         $validator = \Validator::make($request->all(), $validation);
         if ($validator->passes()) {

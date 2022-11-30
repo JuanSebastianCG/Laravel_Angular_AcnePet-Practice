@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
+  session = localStorage.getItem('id');
   constructor() { }
 
+
   ngOnInit(): void {
+    this.session = localStorage.getItem('id');
   }
+
+  logout(){
+    console.log('logout');
+    localStorage.clear();
+    window.location.reload();
+  }
+
 
 }

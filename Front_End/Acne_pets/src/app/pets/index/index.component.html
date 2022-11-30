@@ -18,7 +18,7 @@
                     <div *ngIf="confirmation == true" class="card-link">
                         <button class="btn btn-danger" (click)="deletePet(pet.id)">Delete</button>
                         <!-- edit -->
-                        <button class="btn btn-warning" [routerLink]="['/',{ outlets: {body: ['postPets'] } }]" >Edit</button>
+                        <button class="btn btn-warning" [routerLink]="['/',{ outlets: {body: ['postPets'] } }]" [queryParams]="{id: pet.id}">Edit</button>
 
                     </div>
                     <!-- button to add -->

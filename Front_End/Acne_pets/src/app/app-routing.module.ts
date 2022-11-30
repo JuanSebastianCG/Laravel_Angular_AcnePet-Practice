@@ -20,7 +20,7 @@ const routes: Routes = [
   
   { path: 'indexPets', component: IndexComponent, outlet: 'body',data: {id: 'True'}, canActivate: [AutenticarGuard]},
   { path: 'postPets', component: PostComponent, outlet: 'body'},
-  { path: 'editPets', component: PostComponent, outlet: 'body',data: {editConfirmation: 'True'}},
+  { path: 'editPets', component: PostComponent, outlet: 'body' },
 
 
   

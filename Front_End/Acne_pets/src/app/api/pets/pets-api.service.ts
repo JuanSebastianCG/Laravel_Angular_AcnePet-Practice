@@ -40,10 +40,17 @@ export class PetsApiService {
     return this.datos.delete<Ihttp>(this.url + "clients/" + idClient + "/pets/" + idPet)
   }
 
-  public editPetFromClient(idClient: number, idPet: number, name: string) {
+  public editPetFromClient(idClient: number, idPet: number, name: string, type: string, date_of_birth: string) {
     return this.datos.put<Ihttp>(this.url + "clients/" + idClient + "/pets/" + idPet, {
       name: name,
+      type: type,
+      date_of_birth: date_of_birth
+      
     })
+  }
+
+  public getPet(id: number) {
+    return this.datos.get<Ihttp>(this.url + 'pets/'+id)
   }
 
 }
