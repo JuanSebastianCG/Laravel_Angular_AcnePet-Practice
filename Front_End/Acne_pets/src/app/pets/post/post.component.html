@@ -1,32 +1,28 @@
-
-
-<form [formGroup]="newPet" (ngSubmit)="add_edit_pet()">
-  <div>
-
-   
-    <!-- name -->
-    <label class="form-label" for="name">Nombre de la mascota</label>
+<div class="content">
+  <form [formGroup]="newPet" (ngSubmit)="add_edit_pet()">
+    <div>
+      <!-- name -->
+      <label class="form-label" for="name" style="color: white;">Nombre de la mascota</label>
+    
+       <!-- if edit  -->
+      <input type="string" id="name" class="form-control"  formControlName="name" [(ngModel)]="data.name" />
   
-     <!-- if edit  -->
-     
-    <input type="string" id="name" class="form-control"  formControlName="name" [(ngModel)]="data.name" />
-
-    <label class="form-label" for="type">Tipo de mascota</label>
-    <!-- type enum perro gato drop down -->
-    <select id="type" class="form-control" formControlName="type" [(ngModel)]="data.type">
-      <option value="perro">Perro</option>
-      <option value="gato">Gato</option>
-    </select>
-
+      <label class="form-label" for="type" style="color: white;">Tipo de mascota</label>
+      <!-- type enum perro gato drop down -->
+      <select id="type" class="form-control" formControlName="type" [(ngModel)]="data.type">
+        <option value="perro">Perro</option>
+        <option value="gato">Gato</option>
+      </select>
+    
+      <!-- date_of_birth -->
+      <label class="form-label" for="date_of_birth" style="color: white;">Fecha de nacimiento</label>
+      <input id="date_of_birth" type="date" class="form-control" formControlName="date_of_birth" [(ngModel)]="data.date_of_birth" />
   
-    <!-- date_of_birth -->
-    <label class="form-label" for="date_of_birth">Fecha de nacimiento</label>
-
-    <input id="date_of_birth" type="date" class="form-control" formControlName="date_of_birth" [(ngModel)]="data.date_of_birth" />
-
-    <div class="pt-1 mb-4">
-      <button class="btn btn-dark btn-lg btn-block" type="submit">Añadir mascota</button>
+      <div class="button pt-1 mb-4">
+        <button class="btn btn-light btn-lg btn-block" type="submit">Añadir mascota</button>
+      </div>
+  
     </div>
+  </form>
+</div>
 
-  </div>
-</form>

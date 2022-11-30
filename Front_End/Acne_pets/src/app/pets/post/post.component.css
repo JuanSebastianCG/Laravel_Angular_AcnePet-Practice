@@ -1,0 +1,12 @@
+.content{
+    width: 100wh;
+    height: 100vh;
+}
+
+.form-control{
+    margin-bottom: 20px;
+}
+
+.button{
+    text-align: center;
+}

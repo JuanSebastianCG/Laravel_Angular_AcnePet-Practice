@@ -1,0 +1,9 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background-color: #151515;
+}
+
+.container{
+    width: 100 wh;
+}

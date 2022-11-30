@@ -1,7 +1,25 @@
+.content{
+    width: 100wh;
+    height: 100vh;
+}
+
+.jumbotron{
+    background-color: #fcf7f2;
+}
+
+.text{
+    text-align: center;
+}
+
 .adoptado{
     color: red;
 }
 .adoptame{
     color: green;
-
 }
+
+.btn{
+    margin-right: 10px;
+    color: white;
+}
+
