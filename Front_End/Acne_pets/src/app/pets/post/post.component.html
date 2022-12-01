@@ -1,46 +1,66 @@
-<div class="row">
+
+<section class="vh-100" style="margin-bottom: 10%;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-90 ">
+      <div class="col-lg-12 col-xl-11">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center formInput">
 
 
-  <div class="formPet col-5 ">
-    <!-- fromulario -->
-    <form [formGroup]="newPet" (ngSubmit)="add_edit_pet()" class="formInput ">
-      <div>
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 " style="margin-top: 10%;">
 
-        <!-- name -->
-        <label class="form-label" for="name" style="color: rgb(0, 0, 0);">Nombre de la mascota</label>
-        <input type="string" id="name" class="form-control" formControlName="name" [(ngModel)]="data.name" />
+                <form class="mx-1 mx-md-4">
 
-        <label class="form-label" for="type" style="color: rgb(0, 0, 0);">Tipo de mascota</label>
-        <!-- type enum perro gato drop down -->
-        <select id="type" class="form-control" formControlName="type" [(ngModel)]="data.type">
-          <option value="perro">Perro</option>
-          <option value="gato">Gato</option>
-        </select>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example1c">Nombre de la mascota</label>
+                      <input type="string" id="name" class="form-control" formControlName="name" [(ngModel)]="data.name" />
+                    </div>
+                  </div>
 
-        <!-- date_of_birth -->
-        <label class="form-label" for="date_of_birth" style="color: rgb(0, 0, 0);">Fecha de nacimiento</label>
-        <input id="date_of_birth" type="date" class="form-control" formControlName="date_of_birth"
-          [(ngModel)]="data.date_of_birth" />
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example3c">Tipo de mascota</label>
+                      <select id="type" class="form-control" formControlName="type" [(ngModel)]="data.type">
+                        <option value="perro">Perro</option>
+                        <option value="gato">Gato</option>
+                      </select>
+              
+                    </div>
+                  </div>
 
-        <div class="button pt-1 mb-4">
-          <button class="btn buttonEnviar" type="submit">Enviar</button>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example4c">Dia de nacimiento</label>
+                      <input id="date_of_birth" type="date" class="form-control" formControlName="date_of_birth"
+                      [(ngModel)]="data.date_of_birth" />
+                    </div>
+                  </div>
+
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button class="btn buttonEnviar" type="submit">Enviar</button>
+                  </div>
+
+                </form>
+
+              </div>
+              <div class="col-md-10  col-xl-7 d-flex align-items-center " >
+
+                <img src="../../../assets/img/recurso_mascotas.png"
+                  class="img-fluid" alt="Sample image"
+                  style="border-radius: 25px;">
+                   
+
+              </div>
+            </div>
+          </div>
         </div>
-
       </div>
-    </form>
-
-
 
   </div>
-  <!-- big image to the left  -->
+</section>
 
-  <div class="col-7 col-lg-6 ">
-    <img src="../../../assets/img/recurso_mascotas.png" alt="login form" class="img-fluid imagePet" />
-  </div>
-
-</div>
-
-<!-- linea  horizontal -->
-<div class="col-12">
-  <hr class="linea">
-</div>
